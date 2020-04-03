@@ -1,0 +1,19 @@
+// find result of power of a number  for e.g 3 raise to power4 is 81
+
+#include<iostream>
+using namespace std ;
+
+int power_(int n, int power){
+    if(power == 1)
+    return n;
+    return n * power_(n, power-1) ;
+
+}
+
+int main(){
+    int n , power ;
+    cout << "enter number and its power : ";
+    cin >> n >> power ;
+    int ans = power_(n,power);
+    cout << n << " raise to " << power <<" is " << ans;
+}
