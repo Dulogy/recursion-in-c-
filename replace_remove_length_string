@@ -1,0 +1,47 @@
+// c++ program to find length ,replace and remve a given character from a character array i.e string by recursion
+
+#include<iostream>
+using namespace std;
+int length(char c[]){
+    if(c[0]=='\0')
+    return 0 ;
+    int len = length(c+1) ;
+    return len + 1 ;
+}
+
+void removex(char c[]){
+    if(c[0]=='\0')
+    return ;
+    if(c[0] != 'x'){
+        removex(c+1);
+    }
+    else{
+        int i = 0 ;
+        for(i = 0 ; c[i] != '\0' ; i++){
+            c[i] = c[i+1] ;
+        }
+        c[i] = c[i+1] ; 
+        removex(c);
+    }
+}
+
+void replace_a(char c[]){
+     if(c[0]=='\0')
+    return ;
+    if(c[0] == 'a')
+    c[0] = 'x' ;
+    replace_a(c+1) ; 
+
+}
+int main(){
+char c[1000] ;
+cin >> c ;
+int l = length(c) ;
+cout << l << "\n";
+removex(c);
+cout << c <<"\n";
+int ll = length(c) ;
+cout << ll ;
+replace_a(c) ; 
+cout << c ;
+}
