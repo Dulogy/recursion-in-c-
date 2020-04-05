@@ -29,7 +29,7 @@ void replace_a(char c[]){
      if(c[0]=='\0')
     return ;
     if(c[0] == 'a')
-    c[0] = 'x' ;
+    c[0] = 'x' ;    // replace every occurence of a by x
     replace_a(c+1) ; 
 
 }
