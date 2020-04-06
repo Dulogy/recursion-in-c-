@@ -2,6 +2,8 @@
 
 #include<iostream>
 using namespace std ; 
+// this function merge whole array in sorted order
+
 void merge(int ar[],int si,int ei){
     int size = ei - si + 1 ;
     int mid = (si + ei)/2 ;
@@ -30,8 +32,8 @@ void merge(int ar[],int si,int ei){
             j++ ;
         }
     
-    int m = 0 ;
-    for(int i = si; i <= ei; i++){
+    int m = 0 ;             // making changes in same array so copy back the elements
+    for(int i = si; i <= ei; i++){ 
         ar[i] = out[m] ;
         m++ ;
     }
