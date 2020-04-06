@@ -1,0 +1,28 @@
+// print subsequences_string by recursion in c++
+
+#include<iostream>
+#include<math.h>
+using namespace std;
+int subsequences(string str,string out[]){
+    if(str.length() == 0){
+        out[0] = " ";
+        return 1 ;
+    }
+    string small = str.substr(1) ;
+    int small_size = subsequences(small,out) ;
+    for(int i = 0; i < small_size; i++){
+        out[i+small_size] = str[0] + out[i] ;
+    }
+    return 2 * small_size ;
+}
+int main(){
+    string str ;
+    cin >> str ;
+    int len = str.length() ;
+    int size = pow(2,len) ;
+    string *out = new string[size];
+    int ans = subsequences(str,out) ;
+    for(int i = 0; i < ans; i++){
+        cout << out[i] <<" ";
+    }
+}
